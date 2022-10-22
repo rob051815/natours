@@ -11,8 +11,32 @@
 html {
   // 1rem setting
   font-size: 62.5%;
+
+  @include mixin-respond(tab-land) {
+    // width < 1200?
+    font-size: 56.25%; //1rem = 9px, 9/16 = 56.25%
+  }
+
+  @include mixin-respond(tab-port) {
+    // width < 900?
+    font-size: 50%; //1rem = 8px, 8/16 = 50%
+  }
+
+  @include mixin-respond(big-desktop) {
+    font-size: 75%; //1rem = 12px, 12/16 = 75%
+  }
 }
 
 body {
+  box-sizing: border-box;
   padding: 3rem;
+
+  @include mixin-respond(tab-port) {
+    padding: 0;
+  }
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
 }
